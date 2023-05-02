@@ -1144,6 +1144,7 @@ GameObject:
   - component: {fileID: 1393807546}
   - component: {fileID: 1393807545}
   - component: {fileID: 1393807547}
+  - component: {fileID: 1393807548}
   m_Layer: 0
   m_Name: Speaker
   m_TagString: Untagged
@@ -1255,7 +1256,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4b935574e37a72d478ed44d392174756, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
@@ -1352,6 +1353,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc62670902d458c45ae3435c20ca7e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1393807548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393807542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35654410aa164c04ba74ccf2b585ae53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reached:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1393807547}
+        m_TargetAssemblyTypeName: HouseAlarm, Assembly-CSharp
+        m_MethodName: PlayAlarmCoroutine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _unreached:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1393807547}
+        m_TargetAssemblyTypeName: HouseAlarm, Assembly-CSharp
+        m_MethodName: StopAlarmCoroutine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1936163056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,7 +1567,7 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &2019675646
