@@ -39,7 +39,7 @@ public class HouseAlarm : MonoBehaviour
             _source.Play();
         }
 
-        while (_source.volume < target || _source.volume > target)
+        while (_source.volume != target)
         {
             Change(target);
 
