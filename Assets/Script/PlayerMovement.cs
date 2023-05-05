@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
+
     private static int LeftMovementBool = Animator.StringToHash("LeftMovementBool");
     private static int RightMovementBool = Animator.StringToHash("RightMovementBool");
 

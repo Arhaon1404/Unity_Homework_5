@@ -8,7 +8,6 @@ public class HouseAlarm : MonoBehaviour
 {
     private AudioSource _source;
 
-    private float _maxStrength = 1f;
     private float _maxVolume = 1f;
     private float _recoveryRate = 0f;
 
@@ -35,32 +34,27 @@ public class HouseAlarm : MonoBehaviour
 
     private IEnumerator ChangeAlarmVolume(float target)
     {
-        float numberDeterminant;
-
-        if (target == _maxVolume)
+        if (_source.volume == 0)
         {
             _source.Play();
-
-            numberDeterminant = 1;
-
-            while (_source.volume < target)
-            {
-                Change(numberDeterminant);
-
-                yield return null;
-            }
         }
-        else if (target == 0f)
+
+        while (_source.volume < target)
         {
-            numberDeterminant = -1;
+            Change(target);
 
-            while (_source.volume > target)
-            {
-                Change(numberDeterminant);
+            yield return null;
+        }
+
+        while (_source.volume > target)
+        {
+             Change(target);
                 
-                yield return null;
-            }
+           yield return null;
+        }
 
+        if (_source.volume == 0)
+        {
             _source.Stop();
         }
     }
@@ -75,10 +69,10 @@ public class HouseAlarm : MonoBehaviour
         _changeAlarmVolumeCoroutine = StartCoroutine(ChangeAlarmVolume(target));
     }
 
-    private void Change(float numberDeterminant)
+    private void Change(float target)
     {
-        _recoveryRate = 0.05f * numberDeterminant;
+        _recoveryRate = 0.05f;
 
-        _source.volume = Mathf.MoveTowards(_source.volume, _maxStrength, _recoveryRate * Time.deltaTime);
+        _source.volume = Mathf.MoveTowards(_source.volume, target, _recoveryRate * Time.deltaTime);
     }
 }
